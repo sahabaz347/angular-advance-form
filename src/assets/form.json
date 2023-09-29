@@ -1,0 +1,94 @@
+{
+    "controls": [
+        {
+            "name": "firstName",
+            "label": "First Name",
+            "value": "",
+            "type": "text",
+            "option": [],
+            "validators": {
+                "required": true,
+                "minLength": 5
+            }
+        },
+        {
+            "name": "lastName",
+            "label": "Last Name",
+            "value": "",
+            "type": "text",
+            "option": [],
+            "validators": {
+                "required": true,
+                "minLength": 5
+            }
+        },
+        {
+            "name": "gender",
+            "label": "Gender",
+            "value": "male",
+            "option": [
+                {
+                    "value": "male",
+                    "viewValue": "Male"
+                },
+                {
+                    "value": "female",
+                    "viewValue": "Female"
+                },
+                {
+                    "value": "others",
+                    "viewValue": "Others"
+                }
+            ],
+            "type": "radio",
+            "validators": {}
+        },
+        {
+            "name": "state",
+            "label": "State",
+            "value": "",
+            "option": [
+                {
+                    "value": "westbengal",
+                    "viewValue": "West Bengal"
+                },
+                {
+                    "value": "bihar",
+                    "viewValue": "Bihar"
+                },
+                {
+                    "value": "pune",
+                    "viewValue": "Pune"
+                }
+            ],
+            "type": "checkbox",
+            "validators": {
+                "required": true
+            }
+        }
+    ],
+    "controlsGroup": [
+        {
+            "name": "zipCode",
+            "label": "Zip Code",
+            "value": "",
+            "type": "text",
+            "option": [],
+            "validators": {
+                "required": true,
+                "minLength": 5
+            }
+        },
+        {
+            "name": "street",
+            "label": "Street",
+            "value": "",
+            "type": "text",
+            "option": [],
+            "validators": {
+                "required": true,
+                "minLength": 5
+            }
+        }
+    ]
+}

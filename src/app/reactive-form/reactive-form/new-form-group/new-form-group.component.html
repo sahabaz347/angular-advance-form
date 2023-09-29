@@ -1,0 +1,13 @@
+<fieldset>
+    <legend>{{label}}</legend>
+    <div *ngFor="let control of jsonGroupFormData.controlsGroup" class="form-field" [formGroupName]="controlKey">
+        <mat-form-field class="full-width" *ngIf="control.type=='text'">
+            <mat-label>{{ control.label }}</mat-label>
+            <input matInput type="{{control.type}}" formControlName="{{control.name}}">
+            <mat-error *ngIf="dynamicForm.get(control.name)?.hasError('required')"
+                class="error-text">Required</mat-error>
+            <mat-error *ngIf="dynamicForm.get(control.name)?.hasError('minlength')" class="error-text">Minimum
+                length: 5</mat-error>
+        </mat-form-field>
+    </div>
+</fieldset>

@@ -1,0 +1,37 @@
+
+<div class="container">
+    <form [formGroup]="dynamicForm" (ngSubmit)="onSubmit()" class="mat-elevation-z2">
+       <h1 style="margin-top: -36px;margin-left: -24px;"><em>Dynamic Form Using Json Data</em></h1>
+        <div *ngFor="let control of jsonFormData.controls" class="form-field">
+            <mat-form-field class="full-width" *ngIf="control.type=='text'">
+                <mat-label>{{ control.label }}</mat-label>
+                <input matInput type="{{control.type}}" formControlName="{{control.name}}">
+                <mat-error *ngIf="dynamicForm.get(control.name)?.hasError('required')"
+                    class="error-text">Required</mat-error>
+                <mat-error *ngIf="dynamicForm.get(control.name)?.hasError('minlength')" class="error-text">Minimum
+                    length: {{control.validators.minLength}}</mat-error>
+            </mat-form-field>
+            <mat-radio-group aria-label="Select an option" *ngIf="control.type === 'radio'"
+                [formControlName]="control.name">
+                <mat-label>{{ control.label }}:</mat-label>
+                <mat-radio-button *ngFor="let data of control.option" [value]="data.value">{{ data.viewValue
+                    }}</mat-radio-button>
+            </mat-radio-group>
+            <mat-form-field *ngIf="control.type === 'checkbox'">
+                <mat-label>{{ control.label }}</mat-label>
+                <mat-select [formControlName]=" control.name">
+                    <mat-option *ngFor="let option of control.option" [value]="option.value">
+                        {{ option.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <app-new-form-group label="Delivery address" controlKey="deliveryAddress"></app-new-form-group>
+        <app-new-form-group label="Permanent address" controlKey="parmanentAddress"></app-new-form-group>
+        <app-new-form-group label="No address" controlKey="noAddress"></app-new-form-group>
+
+        <div class="button-button">
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
